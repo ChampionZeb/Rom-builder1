@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt install wget
-MANIFEST=https://github.com/ShapeShiftOS/platform_manifest.git
+MANIFEST=https://github.com/ShapeShiftOS/android_manifest.git
 BRANCH=android_11
 
 mkdir -p /tmp/rom
