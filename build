@@ -1,16 +1,8 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo
-cd vendor/qcom/opensource/usb 
-wget https://github.com/LineageOS/android_vendor_qcom_opensource_usb/commit/cec97e1e8e0dc407ea13b583ca6b15dce98b0fbd.patch
-patch -R -p1 < *.patch
-cd /tmp/rom
-cd frameworks/av 
-wget https://github.com/phhusson/platform_frameworks_av/commit/624cfc90b8bedb024f289772960f3cd7072fa940.patch 
-patch -p1 < *.patch
-cd /tmp/rom
-source build/envsetup.sh
-lunch bliss_RMX1801-userdebug
+source build/envsetup.sh | tee -a log.txt
+lunch ssos_X01AD-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
 cd /tmp/rom
@@ -34,8 +26,8 @@ make_metalava(){
 }
 
 make_rom(){
-	make blissify
-	zip=$(up out/target/product/RMX1801/*zip)
+	make bacon -j$(nproc --all) | tee -a log.txt 
+	zip=$(up out/target/product/X01AD/*zip)
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh

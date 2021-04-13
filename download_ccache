@@ -1,10 +1,10 @@
 #!/bin/bash
 
-url=https://ghostmirror.hitesh920.workers.dev/enfnarzo.tar.gz
+url=https://roms007.spxd007.workers.dev/0:/ssos1.tar.gz
 
 cd /tmp # Where to download cccahe
 time aria2c $url -x16 -s50
 echo "dl done"
-time tar xf enfnarzo.tar.gz
+time tar xf ssos1.tar.gz
 echo "unzip done"
-find enfnarzo.tar.gz -delete
+find ssos1.tar.gz -delete
