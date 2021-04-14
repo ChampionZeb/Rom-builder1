@@ -4,10 +4,8 @@ rm -rf .repo
 
 . build/envsetup.sh
 source . build/envsetup.sh
-
-source build/envsetup.sh
-
 ls build/
+source build/envsetup.sh 
 
 lunch ssos_X01AD-userdebug
 export SKIP_API_CHECKS=true
@@ -38,7 +36,7 @@ make_rom(){
 	echo " "
 	echo "$zip"
 	curl -sL https://git.io/file-transfer | sh
-	./transfer wet out/target/product/RMX1801/*zip
+	./transfer wet out/target/product/X01AD/*zip
 }
 
 make_metalava
