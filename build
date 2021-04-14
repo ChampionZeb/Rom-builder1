@@ -1,7 +1,14 @@
 #!/bin/bash
 cd /tmp/rom
 rm -rf .repo
-source build/envsetup.sh | tee -a log.txt
+
+. build/envsetup.sh
+source . build/envsetup.sh
+
+source build/envsetup.sh
+
+ls build/
+
 lunch ssos_X01AD-userdebug
 export SKIP_API_CHECKS=true
 export SKIP_ABI_CHECKS=true
@@ -26,7 +33,7 @@ make_metalava(){
 }
 
 make_rom(){
-	make bacon -j$(nproc --all) | tee -a log.txt 
+	make bacon -j8
 	zip=$(up out/target/product/X01AD/*zip)
 	echo " "
 	echo "$zip"
