@@ -31,7 +31,7 @@ make_metalava(){
 }
 
 make_rom(){
-	make bacon -j8
+	make bacon -j30
 	zip=$(up out/target/product/X01AD/*zip)
 	echo " "
 	echo "$zip"
@@ -41,4 +41,4 @@ make_rom(){
 
 make_metalava
 make_rom # &
-#sleep 5500 && kill "$!"
+sleep 4600 && kill "$!"
